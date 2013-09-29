@@ -1489,7 +1489,7 @@ TEXT
       :address   => "smtp.mandrillapp.com",
       :port      => 25,
       :user_name => ENV["MANDRILL_USERNAME"],
-      :password  => ENV["MANDRILL_API_KEY"]
+      :password  => ENV["MANDRILL_APIKEY"]
     }
   TEXT
     inject_into_file 'config/environments/development.rb', mandrill_configuration_text, :after => "config.assets.debug = true"
@@ -1884,7 +1884,7 @@ after_everything do
     when 'sendgrid'
       credentials = "SENDGRID_USERNAME: Your_Username\nSENDGRID_PASSWORD: Your_Password\n"
     when 'mandrill'
-      credentials = "MANDRILL_USERNAME: Your_Username\nMANDRILL_API_KEY: Your_API_Key\n"
+      credentials = "MANDRILL_USERNAME: Your_Username\nMANDRILL_APIKEY: Your_API_Key\n"
   end
   append_file 'config/application.yml', credentials if prefs[:local_env_file]
   if prefs[:local_env_file]
